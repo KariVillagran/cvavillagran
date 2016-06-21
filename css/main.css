@@ -1,5 +1,6 @@
 body {
   padding-top: 70px;
+  background-image: url("../img/symphony.png");
 }
 
 .borde-red{  
@@ -64,13 +65,14 @@ h1, h2, h3 {
     bottom: 0;
     width: 100%;
     height: 60px;
-    background-color: #f5f5f5;
+    background-color: white;
 	text-align: center;
 	padding-bottom: 10px;
 	padding-top: 10px;
 	border-radius: 10px;    
     -moz-border-radius: 10px;    
     -webkit-border-radius: 10px;
+    box-shadow: 10px 10px 5px #e6e6e6;
 }
 
 .pull-right {
@@ -78,9 +80,10 @@ h1, h2, h3 {
 }
 
 .panel-body{
-	background-color: rgb(248, 247, 241);
+	background-color: white;
 	padding: 10px;
 	border-radius: 10px;    
     -moz-border-radius: 10px;    
     -webkit-border-radius: 10px;
+    box-shadow: 10px 10px 5px #e6e6e6;
 }

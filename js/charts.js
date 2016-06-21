@@ -32,120 +32,77 @@ var habilidadesJson = { "Habilidades": [{
 							"nombre": "Ingles",
 							"cantidad": "33"
 						}]
-					};				
+					};
 
 $(function () {
     $('#bubble-chart').highcharts({
-
         chart: {
-            type: 'bubble',
-            plotBorderWidth: 1,
-            zoomType: 'xy'
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie',
+            backgroundColor:'transparent'
         },
-
-        legend: {
-            enabled: false
-        },
-
         title: {
-            text: 'Habilidades tecnicas'
+            text: 'Habilidades técnicas'
         },
-
-        subtitle: {
-            text: 'Distribución de las habilidades tecnologicas'
-        },
-
-        xAxis: {
-            gridLineWidth: 1,
-            title: {
-                text: 'Meses de experiencia'
-            },
-            labels: {
-                format: '{value} Meses'
-            },
-            plotLines: [{
-                color: 'black',
-                dashStyle: 'dot',
-                width: 2,
-                value: 5,
-                label: {
-                    rotation: 0,
-                    y: 15,
-                    style: {
-                        fontStyle: 'italic'
-                    },
-                    text: 'Meses utilizando la tecnologia/mes'
-                },
-                zIndex: 3
-            }]
-        },
-
-        yAxis: {
-            startOnTick: false,
-            endOnTick: false,
-            title: {
-                text: 'Dominio de la tecnologia'
-            },
-            labels: {
-                format: '{value} %'
-            },
-            maxPadding: 0.2,
-            plotLines: [{
-                color: 'black',
-                dashStyle: 'dot',
-                width: 2,
-                value: 15,
-                label: {
-                    align: 'right',
-                    style: {
-                        fontStyle: 'italic'
-                    },
-                    text: '% de dominio/mes',
-                    x: -10
-                },
-                zIndex: 3
-            }]
-        },
-
         tooltip: {
-            useHTML: true,
-            headerFormat: '<table>',
-            pointFormat: '<tr><th colspan="2"><h3>{point.country}</h3></th></tr>' +
-                '<tr><th>Meses de exp.:</th><td>{point.x}</td></tr>' +
-                '<tr><th>% de dominio:</th><td>{point.y}%</td></tr>' +
-                '<tr><th>Trabajo:</th><td>{point.z}</td></tr>',
-            footerFormat: '</table>',
-            followPointer: true
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
         },
-
         plotOptions: {
-            series: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
                 dataLabels: {
                     enabled: true,
-                    format: '{point.name}'
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
                 }
             }
         },
-
         series: [{
-            data: [
-                { x: 34, y: 95, z: 3, name: 'RE', country: 'Reportabilidad' },
-                { x: 30, y: 80, z: 2, name: 'IBM', country: 'IBM Cognos' },
-                { x: 36, y: 90, z: 3, name: 'PL', country: 'PL/SQL' },
-                { x: 60, y: 92, z: 3, name: 'SQL', country: 'Lenguaje SQL' },
-				{ x: 60, y: 88, z: 4, name: 'DB', country: 'Modelamiento Base de datos' },
-                { x: 29, y: 72, z: 2, name: 'C#', country: 'Lenguaje C#' },
-                { x: 25, y: 82, z: 2, name: 'WEB', country: 'HTML' },
-                { x: 20, y: 53, z: 1.5, name: 'CSS', country: 'Estilos CSS' },
-                { x: 12, y: 20, z: 1.2, name: 'JS', country: 'Javascript' },
-                { x: 3, y: 15, z: 1.1, name: 'JSON', country: 'JSON' },
-                { x: 13, y: 33, z: 1.9, name: 'EN', country: 'Ingles' }
-            ]
+            name: 'Tecnologia',
+            colorByPoint: true,
+            data:  [{
+                            "name": "Reportabilidad",
+                            "y": 20
+                        }, {
+                            "name": "IBM Cognos",
+                            "y": 20
+                        }, {
+                            "name": "PL/SQL",
+                            "sliced": true,
+                            "y": 20
+                        }, {
+                            "name": "SQL",
+                            "y": 10
+                        }, {
+                            "name": "Modelamiento DB",
+                            "y": 5
+                        }, {
+                            "name": "C#",
+                            "y": 5
+                        }, {
+                            "name": "HTML",
+                            "y": 2
+                        }, {
+                            "name": "CSS",
+                            "y": 2
+                        }, {
+                            "name": "JS",
+                            "y": 2
+                        }, {
+                            "name": "JSON",
+                            "y": 2
+                        }, {
+                            "name": "Ingles",
+                            "y": 2
+                        }]
         }]
-
     });
 });
-
 
 $(function () {
 
@@ -153,7 +110,8 @@ $(function () {
 
         chart: {
             polar: true,
-            type: 'line'
+            type: 'line',
+            backgroundColor:'transparent'
         },
 
         title: {
@@ -200,7 +158,7 @@ $(function () {
 
         series: [{
             name: 'Desarrollo',
-            data: [43, 74, 45, 35, 40, 10],
+            data: [43, 74, 45, 35, 40, 30],
             pointPlacement: 'on'
         }]
 
